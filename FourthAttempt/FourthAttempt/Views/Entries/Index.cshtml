@@ -1,0 +1,47 @@
+﻿@model List<FourthAttempt.Models.TheEntriesList>
+
+
+@{
+    ViewData["Title"] = "Entries List";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Entries List</h2>
+
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Site Entry ID</th>
+                <th>Site Name</th>
+                <th>Author First</th>
+                <th>Author Last</th>
+                <th>Author Role</th>
+                <th>Entry Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var entry in Model)
+            {
+                <tr>
+                    <td>@entry.SiteEntryID</td>
+                    <td>@entry.SiteName</td>
+                    <td>@entry.AuthorFirst</td>
+                    <td>@entry.AuthorLast</td>
+                    <td>@entry.AuthorRole</td>
+                    <td>@entry.EntrySummary</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@entry.SiteEntryID" class="btn btn-warning">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@entry.SiteEntryID" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".table").DataTable();
+    });
+</script>
