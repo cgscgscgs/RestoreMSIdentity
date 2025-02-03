@@ -5,7 +5,7 @@ using RestoreMSIdentity.Models;
 
 namespace RestoreMSIdentity.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -24,6 +24,12 @@ namespace RestoreMSIdentity.Controllers
         {
             return View();
         }
+
+        public IActionResult DashboardView()
+        {
+            return View();
+        }
+
 
         [AllowAnonymous]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
