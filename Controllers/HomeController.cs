@@ -27,7 +27,8 @@ namespace RestoreMSIdentity.Controllers
 
         public IActionResult LandingPage()
         {
-            return View();
+            var data = new LP() { Name = "Green River Worksite" };
+            return View(data);
         }
 
         [AllowAnonymous]
