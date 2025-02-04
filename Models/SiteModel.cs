@@ -5,6 +5,7 @@ namespace RestoreMSIdentity.Models
 {
     public class SiteModel
     {
+        [Key]
         public int Id { get; set; }
 
         [Required]

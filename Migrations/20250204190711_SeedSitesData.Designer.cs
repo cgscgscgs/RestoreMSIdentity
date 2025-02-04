@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RestoreMSIdentity.Data;
 
@@ -10,9 +11,11 @@ using RestoreMSIdentity.Data;
 namespace RestoreMSIdentity.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    partial class AppDBContextModelSnapshot : ModelSnapshot
+    [Migration("20250204190711_SeedSitesData")]
+    partial class SeedSitesData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,22 +52,22 @@ namespace RestoreMSIdentity.Migrations
                         new
                         {
                             Id = 1,
-                            Description = "Site A",
-                            ImageUrl = "/images/siteA.jpg",
+                            Description = "First site",
+                            ImageUrl = "https://example.com/image1.jpg",
                             Name = "Site A"
                         },
                         new
                         {
                             Id = 2,
-                            Description = "This i an awesome site",
-                            ImageUrl = "/images/siteB.jpg",
+                            Description = "Second site",
+                            ImageUrl = "https://example.com/image2.jpg",
                             Name = "Site B"
                         },
                         new
                         {
                             Id = 3,
-                            Description = "This is a river and woods",
-                            ImageUrl = "/images/siteC.jpg",
+                            Description = "Third site",
+                            ImageUrl = "https://example.com/image3.jpg",
                             Name = "Site C"
                         });
                 });
