@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using RestoreMSIdentity.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +23,8 @@ builder.Services.AddControllersWithViews(options =>
 });
 builder.Services.AddRazorPages()
     .AddMicrosoftIdentityUI();
+builder.Services.AddDbContext<RestoreMSIdentityContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("RestoreMSIdentityContext") ?? throw new InvalidOperationException("Connection string 'RestoreMSIdentityContext' not found.")));
 
 var app = builder.Build();
 
