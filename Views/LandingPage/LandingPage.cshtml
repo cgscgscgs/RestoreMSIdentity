@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "Landing Page";
+}
+
+@model List<RestoreMSIdentity.Models.LandingPageModel>
+
+@if (Model == null)
+{
+        <p style="color: red;">Error: Model is null! Check if data is being passed from the controller.</p>
+}
+else
+{
+    <!-- title -->
+    <div class="content">
+        <h2><center>Green River Coalition</center></h2>
+        <p><strong><center>Third attempt at landing page!</center></strong></p>
+        <!-- tiles -->
+        <div class="row">
+            @foreach (var site in Model)
+            {
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <img src="@site.ImageUrl" class="card-img-top" alt="Site Image">
+                        <div class="card-body">
+                            <h5 class="card-title">@site.Name</h5>
+                            <p class="card-text">@site.Description</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
