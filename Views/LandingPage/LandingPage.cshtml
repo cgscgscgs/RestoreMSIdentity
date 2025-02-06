@@ -1,20 +1,24 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Landing Page";
 }
 
 @model List<RestoreMSIdentity.Models.LandingPageModel>
 
+<!-- header -->
+<header>
+    <h1>Green River Coalition</h1>
+</header>
+
 @if (Model == null)
 {
-        <p style="color: red;">Error: Model is null! Check if data is being passed from the controller.</p>
+    <p style="color: red;">Error: Model is null! Check if data is being passed from the controller.</p>
 }
 else
 {
     <!-- title -->
-    <div class="content">
-        <h2><center>Green River Coalition</center></h2>
-        <p><strong><center>Third attempt at landing page!</center></strong></p>
+    <div class="content" style="text-align: center;">
+        <h3>PROTECTING + ENHANCING THE GREEN RIVER + OUR WATERSHED</h3>
+
         <!-- tiles -->
         <div class="row">
             @foreach (var site in Model)
@@ -29,6 +33,73 @@ else
                     </div>
                 </div>
             }
+            <p>
+                <strong>
+                    Green River Coalition collaborates with community, municipalities, nonprofits,
+                    educational institutions and other agencies to protect and enhance the Green River and our watershed.
+                </strong>
+            </p>
+
+            <h4><a href="/Volunteer">Volunteer with Us!</a></h4>
         </div>
     </div>
 }
+
+<!-- footer not needed:
+
+<footer>
+    <div class="footer-content">
+        <p> </p>
+    </div>
+</footer>
+
+-->
+
+
+<!-- stylin' -->
+<style>
+
+    header 
+    {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+        width: 100%;
+        position: relative;
+    }
+
+    footer 
+    {
+        background-color: #2E7D32;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+        width: 100%;
+        position: relative;
+        bottom: 0;
+    }
+
+    nav ul 
+    {
+        list-style-type: none;
+        padding: 0;
+    }
+
+        nav ul li 
+        {
+            display: inline;
+            margin: 0 15px;
+        }
+
+            nav ul li a 
+            {
+                color: white;
+                text-decoration: none;
+            }
+
+                nav ul li a:hover 
+                {
+                    text-decoration: underline;
+                }
+</style>

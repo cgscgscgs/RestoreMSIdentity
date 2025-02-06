@@ -9,12 +9,9 @@ namespace RestoreMSIdentity.Controllers
         {
             var tiles = new List<LandingPageModel>
                 {
-                new LandingPageModel { Id = 1, Name = "Sign Up", Description = "Volunteer with us!", ImageUrl = "/images/imageA.jpg" },
-                new LandingPageModel { Id = 2, Name = "Log In", Description = "Log in to the Restore Dashboard", ImageUrl = "/images/imageA.jpg" },
-                new LandingPageModel { Id = 3, Name = "About Us", Description = "Who is the Green River Coalition?", ImageUrl = "/images/imageA.jpg" },
-                new LandingPageModel { Id = 4, Name = "Events", Description = "See what we are doing next!", ImageUrl = "/images/imageA.jpg" },
-                new LandingPageModel { Id = 4, Name = "Tile 5", Description = "Blurb", ImageUrl = "/images/imageA.jpg" },
-                new LandingPageModel { Id = 4, Name = "Tile 6", Description = "Blurb", ImageUrl = "/images/imageA.jpg" }
+                new LandingPageModel { Id = 1, Name = "River Place", Description = "Planting trees will cool water temperatures for hatchlings.", Location = "1234 Address", ImageUrl = "/images/imageA.jpg" },
+                new LandingPageModel { Id = 2, Name = "Weedy Bog", Description = "Clearing this bog of weeds will allow young salmon to flourish.", Location = "1234 Address", ImageUrl = "/images/imageA.jpg" },
+                new LandingPageModel { Id = 3, Name = "Dude's Backyard", Description = "This trash heap drains into the Green River.", Location = "1234 Address", ImageUrl = "/images/imageA.jpg" },
                 };
             return View(tiles);
         }
