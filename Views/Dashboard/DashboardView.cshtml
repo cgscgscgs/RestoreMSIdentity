@@ -1,0 +1,122 @@
+﻿@{
+    ViewData["Title"] = "Sites Dashboard";
+}
+
+@model List<RestoreMSIdentity.Models.SiteModel>
+
+@if (Model == null)
+{
+    <p style="color: red;">Error: Model is null! Check if data is being passed from the controller.</p>
+}
+else
+{
+    <style>
+    
+    </style>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <h3>Green River Coalition</h3>
+        <a href="#active-sites"><i class="fas fa-map-marked-alt"></i> Sites</a>
+        <a href="#recent-entries"><i class="fas fa-book"></i> Entries</a>
+        <a href="#your-entries"><i class="fas fa-user"></i> Your Entries</a>
+        <a href="#tasks"><i class="fas fa-tasks"></i> Tasks</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <h2>Main Dashboard</h2>
+        <p><strong>Purpose:</strong> Have sites be the first thing a user sees when they log in - access necessary sites and data collection functionalities (adding to site history).</p>
+
+        <!-- Active Sites Section -->
+        <div id="active-sites" class="section-box">
+            <h3>Active Sites</h3>
+            <div class="row">
+                @foreach (var site in Model)
+                {
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <img src="@site.ImageUrl" class="card-img-top" alt="Site Image">
+                            <div class="card-body">
+                                <h5 class="card-title">@site.Name</h5>
+                                <p class="card-text"><strong>Location:</strong> @site.Description</p>
+                                <p class="card-text"><strong>Last Entry Date:</strong> 1.12.25</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- Recent Entries Section -->
+        <div id="recent-entries" class="section-box">
+            <h3>Recent Entries</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <p><strong>User:</strong> Margaret Banos</p>
+                        <p><strong>Site:</strong> Windy River</p>
+                        <p><strong>Date:</strong> 4.12.25</p>
+                        <p>"Was a vast feeling down the..."</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <p><strong>User:</strong> Benny Tenant</p>
+                        <p><strong>Site:</strong> Duwamish Head</p>
+                        <p><strong>Date:</strong> 1.10.25</p>
+                        <p>"Lots of litter clean up down..."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Your Entries Section -->
+        <div id="your-entries" class="section-box">
+            <h3>Your Entries</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <p><strong>User:</strong> Benny Tenant</p>
+                        <p><strong>Site:</strong> Windy River</p>
+                        <p><strong>Date:</strong> 1.15.25</p>
+                        <p>"The greenery was restored"</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <p><strong>User:</strong> Benny Tenant</p>
+                        <p><strong>Site:</strong> Duwamish Head</p>
+                        <p><strong>Date:</strong> 1.10.25</p>
+                        <p>"Lots of litter clean up down..."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tasks Section -->
+        <div id="tasks" class="section-box">
+            <h3>Tasks</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <ul>
+                            <li>#1 Clean site</li>
+                            <li>#2 Bring tools</li>
+                            <li>#3 Transport...</li>
+                            <li>#4 TBD</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <h5>Task Details</h5>
+                        <p><strong>Assigned:</strong> January 12th</p>
+                        <p><strong>Due:</strong> January 22nd</p>
+                        <p><strong>Description:</strong> Bring more gloves to site #6</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

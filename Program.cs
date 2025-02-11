@@ -1,3 +1,4 @@
+
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
@@ -11,8 +12,25 @@ using RestoreMSIdentity.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-    .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"));
+//builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+//.AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"));
+
+//builder.Services.AddControllersWithViews(options =>
+//{
+//    var policy = new AuthorizationPolicyBuilder()
+//        .RequireAuthenticatedUser()
+//        .Build();
+//    options.Filters.Add(new AuthorizeFilter(policy));
+//});
+//builder.Services.AddRazorPages()
+//    .AddMicrosoftIdentityUI();
+
+
+builder.Services.AddDbContext<AppDBContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+
 
 builder.Services.AddControllersWithViews(options =>
 {
@@ -26,6 +44,13 @@ builder.Services.AddRazorPages()
 builder.Services.AddDbContext<RestoreMSIdentityContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("RestoreMSIdentityContext") ?? throw new InvalidOperationException("Connection string 'RestoreMSIdentityContext' not found.")));
 
+
+//builder without az authentication 
+builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
+//---------------------------
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -37,9 +62,13 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+//added this
+app.MapStaticAssets();
+
 app.UseRouting();
 
-app.UseAuthorization();
+//app.UseAuthorization();
 
 app.MapStaticAssets();
 
@@ -52,3 +81,4 @@ app.MapRazorPages()
    .WithStaticAssets();
 
 app.Run();
+
