@@ -1,9 +1,18 @@
-﻿<!DOCTYPE html>
+﻿<!-- date            developer                changes
+    2/3/2025         celina                   Title now reads "GRC's Restoration Site Portal"
+                                                   
+-->
+
+
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - RestoreMSIdentity</title>
+    <!-- Title below is displayed in browser window's header -->
+    <title>@ViewData["Title"] - GRC's Restoration Site Portal</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -13,7 +22,10 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RestoreMSIdentity</a>
+                <!-- TO DO: below controller must direct "Home" and "Portal" button to landing page, not site overview page-->
+                <!-- the asp-controller routes to SiteOverview for CRUD testing purposes ->
+                <!-- Title below is displayed in top left corner of screen -->
+                <a class="navbar-brand" asp-area="" asp-controller="SiteOverviewModels" asp-action="Index">GRC's Restoration Site Portal</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -43,7 +55,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2025 - RestoreMSIdentity - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2025 - Restore Development - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
