@@ -15,7 +15,7 @@ namespace RestoreMSIdentity.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index() 
         {
             return View();
         }
