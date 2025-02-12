@@ -155,9 +155,10 @@ builder.Services.AddDbContext<RestoreMSIdentityContext>(options =>
 */
 
 
-//builder without az authentication 
+/*//builder without az authentication 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+*/
 
 
 
