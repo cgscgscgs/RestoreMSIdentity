@@ -1,7 +1,7 @@
 ﻿/* date            developer               changes
  *  2/12/2025        celina                 copied SiteOverviewController.cs, step 2 of connecting to azure sql database
  *  2/12/2025        celina                 made a basic index page, and then needed to add create page
- * 
+ *  2/12/2025        celina                 adjusted the index method to check for content in the database
  */
 
 
@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using RestoreMSIdentity.Data;
 using RestoreMSIdentity.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace RestoreMSIdentity.Controllers
 {
@@ -23,9 +24,15 @@ namespace RestoreMSIdentity.Controllers
         }
 
         // GET: SiteOverviewCopy
-        public IActionResult Index()
+        // changed on 2/12 from basic method of
+        // public IActionResult Index()
+        // {
+        //     return View();
+        // }
+        // This below allows us to check for content in the database
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View(await _context.SiteOverviewCopies.ToListAsync());
         }
 
         // GET: SiteOverviewCopy/Create
