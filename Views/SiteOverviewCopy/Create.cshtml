@@ -1,18 +1,29 @@
-﻿@*model RestoreMSIdentity.Models.SiteOverviewModel
+﻿<!-- date                 developer              changes                      
+    2/12/2025             celina                 created this create.cshtml file, step 3 of connecting azure sql database
+
+
+
+
+
+
+-->
+
+
+
+
+@model RestoreMSIdentity.Models.SiteOverviewModelCopy
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Create Site Overview";
 }
 
-<h1>Edit</h1>
+<h2>Create Site Overview</h2>
 
-<h4>SiteOverviewModel</h4>
+<h4>SiteOverviewModelCopy</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
+        <form asp-action="Create">
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
@@ -39,7 +50,7 @@
                 <span asp-validation-for="StartDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -50,6 +61,8 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
-*@
+

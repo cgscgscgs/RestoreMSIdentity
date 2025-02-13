@@ -1,10 +1,9 @@
 ﻿/*  date            developer               changes
- *  2/3/2025        celina                  created SiteOverviewModel.cs
- *                                          added attributes of Id, Name, OwnershipType, City, Status, StartDate
+ *  2/11/2025        celina                 copied SiteOverviewModel.cs, step 1 of connecting to azure sql database
  * 
  * 
  * 
- * 
+ * */
 
 
 
@@ -17,7 +16,7 @@ namespace RestoreMSIdentity.Models
            
     // This class is a model for the site overview page.
     // It contains properties that represent the data displayed on the page.
-    public class SiteOverviewModel
+    public class SiteOverviewModelCopy
     {
 
         // The [Display] attribute specifies the display name for a property.
@@ -37,4 +36,3 @@ namespace RestoreMSIdentity.Models
 
     }
 }
-*/

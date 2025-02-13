@@ -10,7 +10,7 @@ namespace RestoreMSIdentity.Data
         }
         public DbSet<SiteModel> Sites { get; set; }
 
-
+        public DbSet<SiteOverviewModelCopy> SiteOverviewCopies { get; set; } // celina added this 2/12, step 4 of connecting azure sql db
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

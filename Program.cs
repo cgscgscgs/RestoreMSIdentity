@@ -137,7 +137,7 @@ builder.Services.AddRazorPages()
 
 
 builder.Services.AddDbContext<AppDBContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AZURE_SQL_CONNECTIONSTRING") ?? throw new InvalidOperationException("Connection string 'AzureSQL' not found."))); ; //changed from default connection to server=tcp
 
 
 
@@ -158,9 +158,10 @@ builder.Services.AddDbContext<RestoreMSIdentityContext>(options =>
 */
 
 
-//builder without az authentication 
+/*//builder without az authentication 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+*/
 
 
 
