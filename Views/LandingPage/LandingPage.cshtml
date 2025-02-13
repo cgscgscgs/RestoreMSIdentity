@@ -1,13 +1,21 @@
-﻿@{
+﻿<!--
+Kari Stephenson:
+                changed "site" variable to "tile" 2/13 to fix duplicate variable on merge 2/13
+                added await script to address LandingPageController automated suggestion 2/13
+-->
+
+
+@{
     ViewData["Title"] = "Landing Page";
 }
 
 @model List<RestoreMSIdentity.Models.LandingPageModel>
 
-<!-- header -->
+<!-- header not needed:
 <header>
     <h1>Green River Coalition</h1>
 </header>
+ -->
 
 @if (Model == null)
 {
@@ -17,18 +25,20 @@ else
 {
     <!-- title -->
     <div class="content" style="text-align: center;">
+        <h1>Green River Coalition</h1>
         <h3>PROTECTING + ENHANCING THE GREEN RIVER + OUR WATERSHED</h3>
 
         <!-- tiles -->
         <div class="row">
-            @foreach (var site in Model)
+            @foreach (var tile in Model)
             {
                 <div class="col-md-4 mb-3">
                     <div class="card">
-                        <img src="@site.ImageUrl" class="card-img-top" alt="Site Image">
+                        <img src="@tile.ImageUrl" class="card-img-top" alt="Site Image">
                         <div class="card-body">
-                            <h5 class="card-title">@site.Name</h5>
-                            <p class="card-text">@site.Description</p>
+                            <h5 class="card-title">@tile.Name</h5>
+                            <p class="card-text">@tile.Description</p>
+                            <p class="card-text">@tile.Location</p>
                         </div>
                     </div>
                 </div>
@@ -54,7 +64,11 @@ else
 </footer>
 
 -->
-
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
 
 <!-- stylin' -->
 <style>
