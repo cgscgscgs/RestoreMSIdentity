@@ -96,9 +96,9 @@ app.Run();
 
 
 /*  date                   developer                    changes
- * 2/10/2022               Celina                   downloaded nuget package for OpenIDConnect
- * 2/11/2022               Celina                   downloaded nuget package for Web.UI
- * 
+ * 2/10/2025             Celina                   downloaded nuget package for OpenIDConnect
+ * 2/11/2025             Celina                   downloaded nuget package for Web.UI
+ * 2/11/2025             Celina                 added AddRazorRuntimeCompilation() to builder.Services.AddControllersWithViews
  * 
  * 
  */
@@ -127,7 +127,10 @@ builder.Services.AddControllersWithViews(options =>
         .RequireAuthenticatedUser()
         .Build();
     options.Filters.Add(new AuthorizeFilter(policy));
+
 });
+//.AddRazorRuntimeCompilation(); // celina added this 2/11 to allow landing page to show
+
 builder.Services.AddRazorPages()
     .AddMicrosoftIdentityUI(); // uses web.ui using statement, package added 2/11
 
